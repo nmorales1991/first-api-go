@@ -1,10 +1,10 @@
 package main
 
 import (
-	"first-api-go/api/handlers"
-	"first-api-go/pkg/repository"
-	"first-api-go/pkg/services"
 	"github.com/gin-gonic/gin"
+	"github.com/nmorales1991/first-api-go/api/handlers"
+	"github.com/nmorales1991/first-api-go/pkg/repository"
+	"github.com/nmorales1991/first-api-go/pkg/services"
 )
 
 func main() {

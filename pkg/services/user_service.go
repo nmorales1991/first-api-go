@@ -2,8 +2,8 @@ package services
 
 import (
 	"context"
-	"first-api-go/pkg/models"
-	"first-api-go/pkg/repository"
+	"github.com/nmorales1991/first-api-go/pkg/models"
+	"github.com/nmorales1991/first-api-go/pkg/repository"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

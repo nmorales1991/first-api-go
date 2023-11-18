@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"first-api-go/pkg/models"
-	"first-api-go/pkg/services"
 	"github.com/gin-gonic/gin"
+	"github.com/nmorales1991/first-api-go/pkg/models"
+	"github.com/nmorales1991/first-api-go/pkg/services"
 	"net/http"
 )
 
