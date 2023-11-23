@@ -2,9 +2,11 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"github.com/nmorales1991/first-api-go/pkg/models"
 	"github.com/nmorales1991/first-api-go/pkg/repository"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type UserService struct {
@@ -39,9 +41,13 @@ func (s *UserService) CreateUser(user models.User) error {
 
 func (s *UserService) UpdateUser(id string, user models.User) error {
 	collection := s.db.GetCollection("go_example", "users")
-	_, err := collection.UpdateOne(context.Background(), bson.M{"id": id}, bson.M{"$set": user})
+	objectID, err := primitive.ObjectIDFromHex(id)
+	result, err := collection.UpdateOne(context.Background(), bson.M{"_id": objectID}, bson.M{"$set": user})
 	if err != nil {
 		return err
+	}
+	if result.MatchedCount == 0 {
+		return fmt.Errorf("no document found with id %s", id)
 	}
 	return nil
 
